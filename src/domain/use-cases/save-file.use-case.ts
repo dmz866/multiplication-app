@@ -17,7 +17,7 @@ export class SaveFile implements ISaveFile {
                 fs.mkdirSync(destination);
             }
 
-            fs.writeFileSync(`${destination}/table-${fileName}.txt`, fileContent);
+            fs.writeFileSync(`${destination}/${fileName}.txt`, fileContent);
 
             return true;
         }

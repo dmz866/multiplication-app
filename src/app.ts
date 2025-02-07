@@ -2,10 +2,10 @@
 import { args } from "./plugins/args.plugin";
 import { ServerApp } from "./server-app";
 
-const { b: base, l: limit } = args;
+const { b: base, l: limit, fn: fileName } = args;
 
 const main = () => {
-    ServerApp.run({ base, limit });
+    ServerApp.run({ base, limit, fileName });
 }
 
 main();

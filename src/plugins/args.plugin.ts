@@ -14,6 +14,12 @@ export const args = yargs(hideBin(process.argv))
         default: 10,
         description: 'Multiplication table limit'
     })
+    .option('fn', {
+        'alias': 'file name',
+        type: 'string',
+        default: 'table',
+        description: 'File name'
+    })
     .check((argv, options) => {
         if (argv.b < 1) {
             throw 'Error: base must be greater than 0'
