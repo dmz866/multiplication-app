@@ -1,15 +1,21 @@
 import fs from 'fs';
 
-export const generateTable = () => {
+export const generateTable = (value: number, limit: number = 10) => {
     let content = `
 ====================================
-        Table 5
+        Table ${value}
 ====================================\n`;
 
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].forEach((n) => {
-        content += `5 x ${n} = ${5 * n}\n`;
-    });
+    for (let i = 1; i <= limit; i++) {
+        content += `${value} x ${i} = ${value * i}\n`;
+    }
 
     console.log(content);
-    fs.writeFileSync('outputs/table-5.txt', content);
+    const dir = 'outputs';
+
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir);
+    }
+
+    fs.writeFileSync(`${dir}/table-${value}.txt`, content);
 };
